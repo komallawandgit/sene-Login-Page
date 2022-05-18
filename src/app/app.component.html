@@ -1,0 +1,56 @@
+
+<section class="vh-100" style="background-color:rgb(212, 241, 241);">
+  <div class="container py-5 h-100  ">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0 ">
+            <div class="col-md-6 col-lg-5 d-none d-md-block h-100 ">
+              <img src="../assets/login.png"/>
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <div>
+                  <h3 class="text-center">Log in</h3>
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="text" formControlName="email" placeholder="joe@gmail.com" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">email is required</div>
+                          <div *ngIf="f.email.errors.email">Email must be a valid email address</div> 
+
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" formControlName="password" placeholder="Enter your Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required</div>
+                          <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div> 
+                          <div *ngIf="f.password.errors.specialValidator">Password is special character required..</div>
+                          <div *ngIf="f.password.errors.uppercaseValidatorValidator">Password is UPPERCASE required...,</div>
+                          <div *ngIf="f.password.errors.lowerCaseValidator">Password is lowerCaseValidator required...,</div>
+                          <div *ngIf="f.password.errors.numberValidator">Password is numberValidator required...,</div>                     
+                        </div>
+                  </div>
+                  <div class="float-right font-weight-bold">forgot password?</div>
+                  <div class="form-group">
+                      <button class="btn btn-primary">
+                          Login
+                      </button>
+                     
+                  </div>
+              </form>
+
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
